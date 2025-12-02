@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.circleImg {
+  background: linear-gradient(180deg, #89a0e4 0%, rgba(128, 155, 235, 0) 100%);
+}
+
+/* .container {
+  --uib-size: 40px;
+  --uib-color: black;
+  --uib-speed: 0.9s;
+  --uib-center: calc(var(--uib-size) / 2 - var(--uib-size) / 5 / 2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: rotate calc(var(--uib-speed) * 3) linear infinite;
+} */
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70%;
+  width: 70%;
+}
+
+.dot::before {
+  content: "";
+  height: 10%;
+  width: 10%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  animation: oscillate var(--uib-speed) ease-in-out infinite alternate;
+  transition: background-color 0.3s ease;
+}
+
+.dot:nth-child(1)::before {
+  transform: translateX(var(--uib-center));
+}
+
+.dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.dot:nth-child(2)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+.dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dot:nth-child(3)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+
+.dot:nth-child(4)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+
+.dot:nth-child(5)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+
+.dot:nth-child(6)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+
+.dot:nth-child(7)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+.dot:nth-child(8)::before {
+  transform: translateX(var(--uib-center));
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+@keyframes oscillate {
+  0% {
+    transform: translateX(var(--uib-center)) scale(0);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* loading styles  */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  width: 22px;
+  height: 22px;
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #0294da; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.checkmark-circle {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.checkmark-circle .background {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #2eb150;
+  position: absolute;
+}
+.checkmark-circle .checkmark {
+  border-radius: 5px;
+}
+.checkmark-circle .checkmark.draw:after {
+  -webkit-animation-delay: 100ms;
+  -moz-animation-delay: 100ms;
+  animation-delay: 100ms;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-name: checkmark;
+  -moz-animation-name: checkmark;
+  animation-name: checkmark;
+  -webkit-transform: scaleX(-1) rotate(135deg);
+  -moz-transform: scaleX(-1) rotate(135deg);
+  -ms-transform: scaleX(-1) rotate(135deg);
+  -o-transform: scaleX(-1) rotate(135deg);
+  transform: scaleX(-1) rotate(135deg);
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.checkmark-circle .checkmark:after {
+  opacity: 1;
+  height: 75px;
+  width: 37.5px;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  border-right: 15px solid white;
+  border-top: 15px solid white;
+  border-radius: 2.5px !important;
+  content: "";
+  left: 25px;
+  top: 75px;
+  position: absolute;
+}
+
+@-webkit-keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 37.5px;
+    opacity: 1;
+  }
+  40% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+  100% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 37.5px;
+    opacity: 1;
+  }
+  40% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+  100% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+}
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 37.5px;
+    opacity: 1;
+  }
+  40% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+  100% {
+    height: 75px;
+    width: 37.5px;
+    opacity: 1;
+  }
+}
+
+
+.create-todo-button {
+  width: 300px;  
+  height: 50px; 
+}
+.create-goal-button {
+  width: 350px;  
+  height: 50px; 
+}
+.delete-todo-dropdown {
+  position: absolute;
+  top: 0;
+  right: 50;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 50;
+
+}
+
+.todo-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

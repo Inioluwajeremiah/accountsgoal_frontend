@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["298P2A68U8.com.accountsgoal.accountsgoalapp"],
+        "components": [
+          {
+            "/": "/invite-signup/*",
+            "comment": "Matches any URL whose path is exactly /invite-signup"
+          }
+        ]
+      }
+    ],
+    "activitycontinuation": {
+      "apps": ["298P2A68U8.com.accountsgoal.accountsgoalapp"]
+    },
+    "webcredentials": {
+      "apps": ["298P2A68U8.com.accountsgoal.accountsgoalapp"]
+    }
+  }
+}
